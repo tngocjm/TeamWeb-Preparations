@@ -107,15 +107,15 @@ public class OrderDetail {
 
 #### d. Sự khác biệt giữa Lazy loading và Eager loading 
 
-| Tiêu chí so sánh | Tải Tạm Hoãn (Lazy Loading) | Tải Nhanh (Eager Loading) |
-| :--- | :--- | :--- |
-| **Cách thức hoạt động** | Dữ liệu chỉ được tải khi được truy cập. | Dữ liệu được tải ngay từ đầu với yêu cầu ban đầu. |
-| **Tốc độ tải ban đầu** | Nhanh hơn. | Chậm hơn. |
-| **Mức độ sử dụng bộ nhớ** | Chỉ sử dụng bộ nhớ cho dữ liệu được truy cập. | Sử dụng bộ nhớ cao hơn do tìm nạp tất cả dữ liệu. |
-| **Số lượng truy vấn SQL** | Có thể dẫn đến nhiều truy vấn. | Thông thường ít truy vấn hơn. |
-| **Độ phức tạp của mã nguồn** | Yêu cầu mã phức tạp hơn để tải trì hoãn. | Mã đơn giản hơn vì tất cả dữ liệu có sẵn ngay từ đầu. |
-| **Mức tiêu thụ băng thông** | Sử dụng ít băng thông hơn ban đầu. | Có thể sử dụng nhiều băng thông hơn nếu tìm nạp dữ liệu không cần thiết. |
-| **Trường hợp ứng dụng phù hợp** | Phù hợp với việc tìm nạp dữ liệu có điều kiện. | Phù hợp nơi cần tất cả dữ liệu ngay từ đầu. |
+| Tiêu chí so sánh                | Tải Tạm Hoãn (Lazy Loading)                    | Tải Nhanh (Eager Loading)                                                |
+| :------------------------------ | :--------------------------------------------- | :----------------------------------------------------------------------- |
+| **Cách thức hoạt động**         | Dữ liệu chỉ được tải khi được truy cập.        | Dữ liệu được tải ngay từ đầu với yêu cầu ban đầu.                        |
+| **Tốc độ tải ban đầu**          | Nhanh hơn.                                     | Chậm hơn.                                                                |
+| **Mức độ sử dụng bộ nhớ**       | Chỉ sử dụng bộ nhớ cho dữ liệu được truy cập.  | Sử dụng bộ nhớ cao hơn do tìm nạp tất cả dữ liệu.                        |
+| **Số lượng truy vấn SQL**       | Có thể dẫn đến nhiều truy vấn.                 | Thông thường ít truy vấn hơn.                                            |
+| **Độ phức tạp của mã nguồn**    | Yêu cầu mã phức tạp hơn để tải trì hoãn.       | Mã đơn giản hơn vì tất cả dữ liệu có sẵn ngay từ đầu.                    |
+| **Mức tiêu thụ băng thông**     | Sử dụng ít băng thông hơn ban đầu.             | Có thể sử dụng nhiều băng thông hơn nếu tìm nạp dữ liệu không cần thiết. |
+| **Trường hợp ứng dụng phù hợp** | Phù hợp với việc tìm nạp dữ liệu có điều kiện. | Phù hợp nơi cần tất cả dữ liệu ngay từ đầu.                              |
 
 
 ### 2. Pagination
@@ -209,12 +209,12 @@ Caching thường được sử dụng để giảm độ trễ, tăng tốc đ�
 
 #### a. Ưu điểm / Nhược điểm
 
-| Ưu điểm  | Nhược điểm |
-| :--- | :--- |
-| **Tăng tốc độ phản hồi:** Đọc dữ liệu từ RAM siêu nhanh, giảm thiểu tối đa độ trễ cho API. | **Dữ liệu lỗi thời (Stale Data):** Dễ trả về thông tin cũ nếu dữ liệu trong Database thay đổi mà quên xóa cache. |
-| **Giảm tải cho Database:** Tránh việc Database phải thực thi lặp đi lặp lại các câu query giống nhau. | **Tốn bộ nhớ RAM:** Lưu trữ dữ liệu trực tiếp trên RAM, dễ dẫn đến nguy cơ tràn bộ nhớ (OOM) nếu lạm dụng. |
-| **Cải thiện trải nghiệm người dùng:** Ứng dụng mượt mà, phản hồi tức thì ngay cả khi có lượng truy cập lớn. | **Phức tạp khi quản lý:** Khó khăn trong việc quyết định thời điểm và cách thức xóa hoặc làm mới cache (Cache Invalidation). |
-| **Tiết kiệm tài nguyên hệ thống:** Giảm bớt số lượng kết nối đồng thời và áp lực tính toán cho tầng lưu trữ. | **Khó khăn khi Debug:** Dễ gây nhầm tưởng là lỗi code trong khi thực tế ứng dụng chỉ đang đọc dữ liệu cũ từ cache. |
+| Ưu điểm                                                                                                      | Nhược điểm                                                                                                                   |
+| :----------------------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------- |
+| **Tăng tốc độ phản hồi:** Đọc dữ liệu từ RAM siêu nhanh, giảm thiểu tối đa độ trễ cho API.                   | **Dữ liệu lỗi thời (Stale Data):** Dễ trả về thông tin cũ nếu dữ liệu trong Database thay đổi mà quên xóa cache.             |
+| **Giảm tải cho Database:** Tránh việc Database phải thực thi lặp đi lặp lại các câu query giống nhau.        | **Tốn bộ nhớ RAM:** Lưu trữ dữ liệu trực tiếp trên RAM, dễ dẫn đến nguy cơ tràn bộ nhớ (OOM) nếu lạm dụng.                   |
+| **Cải thiện trải nghiệm người dùng:** Ứng dụng mượt mà, phản hồi tức thì ngay cả khi có lượng truy cập lớn.  | **Phức tạp khi quản lý:** Khó khăn trong việc quyết định thời điểm và cách thức xóa hoặc làm mới cache (Cache Invalidation). |
+| **Tiết kiệm tài nguyên hệ thống:** Giảm bớt số lượng kết nối đồng thời và áp lực tính toán cho tầng lưu trữ. | **Khó khăn khi Debug:** Dễ gây nhầm tưởng là lỗi code trong khi thực tế ứng dụng chỉ đang đọc dữ liệu cũ từ cache.           |
 
 #### b. Cách sử dụng
 
@@ -797,35 +797,35 @@ VD:
 
 Bảng t_users:
 
-| id | name |
-| :--- | :--- |
-| 1 | Alice |
-| 2 | Bob |
-| 3 | Charlie |
+| id   | name    |
+| :--- | :------ |
+| 1    | Alice   |
+| 2    | Bob     |
+| 3    | Charlie |
 
 Bảng t_roles:
 
-| id | name |
-| :--- | :--- |
-| 10 | ADMIN |
-| 20 | USER |
+| id   | name  |
+| :--- | :---- |
+| 10   | ADMIN |
+| 20   | USER  |
 
 Bảng t_user_roles:
 
 | user_id | role_id |
-| :--- | :--- |
-| 1 | 10 |
-| 1 | 20 |
-| 2 | 20 |
+| :------ | :------ |
+| 1       | 10      |
+| 1       | 20      |
+| 2       | 20      |
 
 Kết quả sau khi fetch join:
 
 | user_id | user_name | role_id | role_name |
-| :--- | :--- | :--- | :--- |
-| 1 | Alice | 10 | ADMIN |
-| 1 | Alice | 20 | USER |
-| 2 | Bob | 20 | USER |
-| 3 | Charlie | *Null* | *Null* |
+| :------ | :-------- | :------ | :-------- |
+| 1       | Alice     | 10      | ADMIN     |
+| 1       | Alice     | 20      | USER      |
+| 2       | Bob       | 20      | USER      |
+| 3       | Charlie   | *Null*  | *Null*    |
 
 ### 2. Cách 2: Entity graph
 
@@ -841,4 +841,6 @@ List<User> findAll();
 
 > Hãy ưu tiên dùng @EntityGraph cho các trường hợp CRUD thông thường để code sạch sẽ. Chỉ chuyển sang dùng LEFT JOIN FETCH khi bạn bắt đầu cần viết câu query có điều kiện phức tạp hoặc join nhiều tầng bảng.
 
-
+Cbi thêm
+Concurrency & Distributed Systems Issues
+Data Consistency & Performance Pitfalls
